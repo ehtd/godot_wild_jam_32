@@ -2,16 +2,19 @@ extends KinematicBody
 
 export var mouse_sensitivity = 0.5
 export var ray_length = 200.0
+export var max_corn_count = 7
 
 onready var camera = $Camera
 onready var move_component = $MoveComponent
 onready var raycast = $RayCast
 
 var corn = preload("res://Corn/CornPickUp.tscn")
+var corn_count = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	move_component.init(self)
+	corn_count = max_corn_count
 
 
 func _process(_delta):
@@ -32,14 +35,7 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("jump"):
 		move_component.jump()
-	
-#	if Input.is_action_just_pressed("shoot"):
-#		print("shooting")
-#		var from = camera.project_ray_origin()
-#		var col = raycast.get_collider()
-#		if raycast.is_colliding():
-#			print("colliding")
-			
+		
 		
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -55,11 +51,13 @@ func _input(event):
 		var space_state = get_world().get_direct_space_state()
 		var result = space_state.intersect_ray(from, to, [], 1, true, true)
 		if result:
-			print(result)
-			var corn_instance = corn.instance();
-			get_tree().get_root().add_child(corn_instance)
-			corn_instance.global_transform.origin = result.position
+			add_corn_to_position(result.position)
 			
-		
-		
+func add_corn_to_position(position: Vector3):
+	if corn_count > 0:
+		var corn_instance = corn.instance()
+		get_tree().get_root().add_child(corn_instance)
+		corn_instance.global_transform.origin = position
+		corn_count = corn_count - 1
+
 		
