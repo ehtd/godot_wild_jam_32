@@ -21,7 +21,9 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
 
-[node name="CornPickUp" type="Area"]
+[node name="CornPickUp" type="Area" groups=[
+"corn",
+]]
 collision_layer = 2147483656
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -32,6 +34,6 @@ autoplay = "rotate"
 anims/rotate = SubResource( 2 )
 
 [node name="Graphics" type="Spatial" parent="."]
-transform = Transform( 0.300108, 0, -0.953905, 0, 1, 0, 0.953905, 0, 0.300108, 0, 0, 0 )
+transform = Transform( 0.951057, 0, -0.309016, 0, 1, 0, 0.309016, 0, 0.951057, 0, 0, 0 )
 
 [node name="corn" parent="Graphics" instance=ExtResource( 1 )]
