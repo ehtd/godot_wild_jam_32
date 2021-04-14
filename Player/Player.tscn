@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/MoveComponent.gd" type="Script" id=2]
+[ext_resource path="res://MoveComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://crosshair.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -22,8 +22,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
 current = true
 
-[node name="MoveComponent" type="Spatial" parent="."]
-script = ExtResource( 2 )
+[node name="MoveComponent" parent="." instance=ExtResource( 2 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
