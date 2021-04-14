@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ground_lmaterial.tres" type="Material" id=2]
 [ext_resource path="res://Chicken/Chicken.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Corn/CornPickUp.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 2 )
@@ -20,6 +21,8 @@ ground_horizon_color = Color( 0, 0, 0, 1 )
 background_mode = 1
 background_sky = SubResource( 3 )
 background_color = Color( 0.521569, 0.807843, 0.823529, 1 )
+background_energy = 5.0
+tonemap_mode = 3
 
 [node name="World" type="Spatial"]
 
@@ -40,12 +43,14 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
 shape = SubResource( 2 )
 
+[node name="CornPickUp" parent="Ground" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -19 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.600591, 0.779045, -0.17994, 0.519092, -0.208745, 0.828836, 0.608139, -0.591197, -0.529766, 0, 28.7104, 0 )
-shadow_enabled = true
+transform = Transform( 0.600591, 0.779045, -0.17994, 0.519092, -0.208745, 0.828836, 0.608139, -0.591197, -0.529766, 0, 20, 0 )
 
 [node name="Chicken" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -19 )
