@@ -4,7 +4,7 @@ export var sight_angle = 90
 export var sight_distance = 2 
 export var turn_speed = 60
 
-onready var animation_player = $chicken/AnimationPlayer
+onready var animation_player: AnimationPlayer = $chicken/AnimationPlayer
 onready var question_mark = $question_mark
 onready var move_component = $MoveComponent
 onready var collision_shape = $CollisionShape
@@ -19,7 +19,7 @@ var closest_corn = null
 var path = []
 
 func _ready():
-	set_state_walk()
+	set_state_look()
 	player_ref = get_tree().get_nodes_in_group("player")[0]
 	all_corn = get_tree().get_nodes_in_group("corn")
 	set_closest_corn(all_corn)
@@ -48,18 +48,31 @@ func walk(delta):
 		var corn_position = closest_corn.global_transform.origin
 		path = nav.get_simple_path(current_position, corn_position)
 		
-		var dir = corn_position - current_position
+		var goal_pos = corn_position
+		if path.size() > 1:
+			goal_pos = path[1]
+			
+		var dir = goal_pos - current_position
 		dir.y = 0
 		move_component.set_movement_vector_as_normalized(dir)
 		
-		face_dir(corn_position, delta)
+		face_dir(dir, delta)
 	else:
 		# todo: rotate randomly?
 		set_state_look()
 	
 	
 func look(delta):
-	pass
+	if closest_corn:
+		var current_position = global_transform.origin
+		var corn_position = closest_corn.global_transform.origin
+		path = nav.get_simple_path(current_position, corn_position)
+		
+		var dir = corn_position - current_position
+		var completed = face_dir(dir, delta)
+		if (completed):
+			set_state_walk()
+
 	
 func trapped(delta):
 	move_component.freeze()
@@ -75,12 +88,13 @@ func set_state_walk():
 
 func set_state_look():
 	current_state = STATES.LOOK
-	animation_player.play("look")
+	animation_player.play("look", 2.0)
 
 func set_state_trapped():
 	current_state = STATES.TRAPPED
 	animation_player.play("Idle_loop")
 
+	
 func can_see_player():
 	var direction_to_player = global_transform.origin.direction_to(player_ref.global_transform.origin)
 	var forward = global_transform.basis.z
@@ -128,8 +142,10 @@ func face_dir(dir: Vector3, delta):
 	var turn_right = sign(global_transform.basis.x.dot(dir))
 	if abs(angle_diff) < deg2rad(turn_speed) * delta:
 		rotation.y = atan2(dir.x, dir.z)
+		return true
 	else:
 		rotation.y += deg2rad(turn_speed) * delta * turn_right
+		return false
 	
 	
 	

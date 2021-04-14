@@ -37,7 +37,8 @@ material/2 = ExtResource( 3 )
 autoplay = "Idle_loop"
 
 [node name="MoveComponent" parent="." instance=ExtResource( 7 )]
-max_speed = 5
+movement_acceleration = 2
+max_speed = 2
 ignore_rotation = true
 
 [editable path="chicken"]
