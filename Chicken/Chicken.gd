@@ -2,7 +2,7 @@ extends Spatial
 
 export var sight_angle = 90
 export var sight_distance = 2 
-export var turn_speed = 60
+export var turn_speed = 100
 
 onready var animation_player: AnimationPlayer = $chicken/AnimationPlayer
 onready var question_mark = $question_mark
@@ -24,11 +24,11 @@ var path = []
 func _ready():
 	timer.connect("timeout", self, "search_for_corn")
 	pickup_component.connect("got_pickup", self, "got_corn")
-	search_for_corn()
 	player_ref = get_tree().get_nodes_in_group("player")[0]
 	player_ref.connect("place_corn", self, "new_corn")
 	update_all_corn()
 	set_closest_corn()
+	search_for_corn()
 	#print(closest_corn)
 	move_component.init(self)
 
@@ -43,7 +43,7 @@ func _process(delta):
 		
 	match current_state:
 		STATES.NO_CORN:
-			no_corn()
+			no_corn(delta)
 		STATES.IDLE:
 			idle(delta)
 		STATES.WALK:
@@ -53,7 +53,7 @@ func _process(delta):
 		STATES.TRAPPED:
 			trapped(delta)
 
-func no_corn():
+func no_corn(delta):
 	pass
 	
 func idle(delta):
@@ -63,6 +63,7 @@ func walk(delta):
 	if closest_corn:
 		var current_position = global_transform.origin
 		var corn_position = closest_corn.global_transform.origin
+		#print(corn_position)
 		path = nav.get_simple_path(current_position, corn_position)
 		
 		var goal_pos = corn_position
@@ -85,6 +86,7 @@ func look(delta):
 		var dir = corn_position - current_position
 		var completed = face_dir(dir, delta)
 		if (completed):
+			move_component.unfreeze()
 			set_state_walk()
 
 	
@@ -177,14 +179,14 @@ func got_corn():
 	print(all_corn)
 	print(closest_corn)
 	if get_visible_corn().size() > 0:
-		set_closest_corn()
+#		set_closest_corn()
 		set_state_idle()
 		timer.start()
 	
 func search_for_corn():
 	print("searching")
 	if get_visible_corn().size() > 0:
-		move_component.unfreeze()
+#		move_component.unfreeze()
 		set_state_look()
 	
 func update_all_corn():
