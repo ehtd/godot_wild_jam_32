@@ -1,5 +1,7 @@
 extends KinematicBody
 
+class_name Player
+
 export var mouse_sensitivity = 0.5
 export var ray_length = 200.0
 export var max_corn_count = 7

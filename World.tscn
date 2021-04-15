@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ground_lmaterial.tres" type="Material" id=2]
@@ -18,19 +18,8 @@ background_energy = 5.0
 tonemap_mode = 3
 
 [sub_resource type="NavigationMesh" id=3]
-vertices = PoolVector3Array( 1.6, 0.4, -1.7, 1.9, 0.4, -1.1, 8.2, 0.4, -4.7, -42.8, 0.4, -49.4, -49.4, 0.4, -49.4, -49.4, 0.4, -43.4, -1.4, 0.4, -1.7, 1.6, 0.4, -1.7, 8.2, 0.4, -4.7, 8.2, 0.4, -13.1, 6.1, 0.4, -23.3, 3.4, 0.4, -23.6, 3.4, 0.4, -26.3, -8.9, 0.4, -49.4, -15.8, 0.4, -49.4, -42.8, 0.4, -49.4, -49.4, 0.4, -43.4, -49.4, 0.4, -37.1, -22.4, 0.4, -49.4, -49.4, 0.4, -18.8, -49.4, 0.4, -12.5, -35.9, 0.4, -49.4, -42.8, 0.4, -49.4, -49.4, 0.4, -37.1, -49.4, 0.4, -31.1, 3.4, 0.4, -26.3, -15.8, 0.4, -49.4, -22.4, 0.4, -49.4, -49.4, 0.4, -12.5, -49.4, 0.4, -6.2, -1.4, 0.4, -1.7, -22.4, 0.4, -49.4, -29.3, 0.4, -49.4, -49.4, 0.4, -24.8, -49.4, 0.4, -18.8, 3.4, 0.4, -26.3, 4.9, 0.4, -26.6, 4.9, 0.4, -49.4, -2, 0.4, -49.4, -49.4, 0.4, 0.100002, -1.7, 0.4, 0.100002, -1.4, 0.4, -1.7, -49.4, 0.4, -6.2, -1.4, 0.4, -1.7, 3.4, 0.4, -23.6, 3.4, 0.4, -26.3, 3.4, 0.4, -26.3, -2, 0.4, -49.4, -8.9, 0.4, -49.4, -29.3, 0.4, -49.4, -35.9, 0.4, -49.4, -49.4, 0.4, -31.1, -49.4, 0.4, -24.8, 49.3, 0.4, -43.1, 49.3, 0.4, -49.4, 38.2, 0.4, -49.4, 49.3, 0.4, -36.8, 49.3, 0.4, -43.1, 38.2, 0.4, -49.4, 49.3, 0.4, -30.5, 49.3, 0.4, -36.8, 38.2, 0.4, -49.4, 4.9, 0.4, -49.4, 4.9, 0.4, -26.6, 6.7, 0.4, -26.3, 16, 0.4, -49.4, 49.3, 0.4, -23.9, 49.3, 0.4, -30.5, 38.2, 0.4, -49.4, 27.1, 0.4, -49.4, 6.7, 0.4, -23.9, 16, 0.4, -49.4, 6.7, 0.4, -26.3, 6.7, 0.4, -23.9, 27.1, 0.4, -49.4, 6.1, 0.4, -23.3, 8.2, 0.4, -13.1, 8.5, 0.4, -13.7, 6.7, 0.4, -23.9, 6.1, 0.4, -23.3, 8.5, 0.4, -13.7, 11.5, 0.4, -13.7, 11.5, 0.4, -13.7, 49.3, 0.4, -11.9, 49.3, 0.4, -23.9, 6.7, 0.4, -23.9, 11.5, 0.4, -13.7, 11.8, 0.4, -11.6, 49.3, 0.4, -11.9, 9.4, 2.4, -12.5, 9.4, 2.4, -5.3, 10.6, 2.4, -5.3, 10.6, 2.4, -12.5, 11.8, 0.4, -11.6, 11.8, 0.4, -6.2, 49.3, 0.4, -5.9, 49.3, 0.4, -11.9, 8.5, 0.4, -4.1, 8.2, 0.4, -4.7, 1.9, 0.4, -1.1, 8.5, 0.4, -4.1, 1.9, 0.4, -1.1, 1.9, 0.4, 1.3, 11.5, 0.4, -4.1, 43, 0.4, 49.3, 49.3, 0.4, 49.3, 49.3, 0.4, 42.4, 12.4, 0.4, 49.3, 18.4, 0.4, 49.3, 49.3, 0.4, 21.7, 37, 0.4, 49.3, 43, 0.4, 49.3, 49.3, 0.4, 42.4, 37, 0.4, 49.3, 49.3, 0.4, 42.4, 49.3, 0.4, 35.5, 30.7, 0.4, 49.3, 49.3, 0.4, 14.8, 49.3, 0.4, 7.9, 11.5, 0.4, -4.1, 30.7, 0.4, 49.3, 49.3, 0.4, 35.5, 49.3, 0.4, 28.6, 24.7, 0.4, 49.3, 49.3, 0.4, 21.7, 49.3, 0.4, 14.8, 11.5, 0.4, -4.1, 1.9, 0.4, 1.3, 6.1, 0.4, 49.3, 12.4, 0.4, 49.3, 24.7, 0.4, 49.3, 49.3, 0.4, 28.6, 49.3, 0.4, 21.7, 18.4, 0.4, 49.3, 49.3, 0.4, -5.9, 11.8, 0.4, -6.2, 11.5, 0.4, -4.1, 49.3, 0.4, 1, 0.100002, 0.4, 1.9, 0.100002, 0.4, 49.3, 6.1, 0.4, 49.3, 1.9, 0.4, 1.3, 49.3, 0.4, 7.9, 49.3, 0.4, 1, 11.5, 0.4, -4.1, -49.4, 0.4, 43, -49.4, 0.4, 49.3, -43.4, 0.4, 49.3, -49.4, 0.4, 37, -49.4, 0.4, 43, -43.4, 0.4, 49.3, -37.1, 0.4, 49.3, 0.100002, 0.4, 49.3, 0.100002, 0.4, 1.9, -1.7, 0.4, 1.6, -6.2, 0.4, 49.3, -49.4, 0.4, 37, -37.1, 0.4, 49.3, -31.1, 0.4, 49.3, -49.4, 0.4, 30.7, -1.7, 0.4, 1.6, -49.4, 0.4, 6.1, -49.4, 0.4, 12.4, -18.8, 0.4, 49.3, -12.5, 0.4, 49.3, -49.4, 0.4, 24.7, -49.4, 0.4, 30.7, -31.1, 0.4, 49.3, -24.8, 0.4, 49.3, -12.5, 0.4, 49.3, -6.2, 0.4, 49.3, -1.7, 0.4, 1.6, -49.4, 0.4, 24.7, -24.8, 0.4, 49.3, -18.8, 0.4, 49.3, -49.4, 0.4, 18.4, -49.4, 0.4, 12.4, -49.4, 0.4, 18.4, -18.8, 0.4, 49.3, -1.7, 0.4, 1.6, -1.7, 0.4, 0.100002, -49.4, 0.4, 0.100002, -49.4, 0.4, 6.1 )
-polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 7, 6, 8 ), PoolIntArray( 8, 6, 9 ), PoolIntArray( 9, 6, 10 ), PoolIntArray( 10, 6, 11 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 15, 17, 16 ), PoolIntArray( 20, 19, 18 ), PoolIntArray( 22, 21, 23 ), PoolIntArray( 23, 21, 24 ), PoolIntArray( 26, 25, 27 ), PoolIntArray( 27, 25, 30 ), PoolIntArray( 27, 30, 28 ), PoolIntArray( 28, 30, 29 ), PoolIntArray( 33, 32, 34 ), PoolIntArray( 34, 32, 31 ), PoolIntArray( 36, 35, 37 ), PoolIntArray( 37, 35, 38 ), PoolIntArray( 40, 39, 41 ), PoolIntArray( 41, 39, 42 ), PoolIntArray( 45, 44, 43 ), PoolIntArray( 46, 48, 47 ), PoolIntArray( 50, 49, 51 ), PoolIntArray( 51, 49, 52 ), PoolIntArray( 54, 53, 55 ), PoolIntArray( 58, 57, 56 ), PoolIntArray( 61, 60, 59 ), PoolIntArray( 63, 62, 64 ), PoolIntArray( 64, 62, 65 ), PoolIntArray( 67, 66, 68 ), PoolIntArray( 68, 66, 69 ), PoolIntArray( 69, 66, 70 ), PoolIntArray( 72, 71, 73 ), PoolIntArray( 73, 71, 74 ), PoolIntArray( 77, 76, 75 ), PoolIntArray( 79, 78, 80 ), PoolIntArray( 80, 78, 81 ), PoolIntArray( 83, 82, 84 ), PoolIntArray( 84, 82, 85 ), PoolIntArray( 88, 87, 86 ), PoolIntArray( 92, 91, 89 ), PoolIntArray( 89, 91, 90 ), PoolIntArray( 93, 96, 94 ), PoolIntArray( 94, 96, 95 ), PoolIntArray( 99, 98, 97 ), PoolIntArray( 101, 100, 102 ), PoolIntArray( 102, 100, 103 ), PoolIntArray( 106, 105, 104 ), PoolIntArray( 109, 108, 107 ), PoolIntArray( 112, 111, 110 ), PoolIntArray( 114, 113, 115 ), PoolIntArray( 115, 113, 116 ), PoolIntArray( 119, 118, 117 ), PoolIntArray( 120, 123, 121 ), PoolIntArray( 121, 123, 122 ), PoolIntArray( 125, 124, 126 ), PoolIntArray( 126, 124, 127 ), PoolIntArray( 127, 124, 129 ), PoolIntArray( 127, 129, 128 ), PoolIntArray( 130, 133, 131 ), PoolIntArray( 131, 133, 132 ), PoolIntArray( 135, 134, 136 ), PoolIntArray( 136, 134, 137 ), PoolIntArray( 138, 141, 139 ), PoolIntArray( 139, 141, 140 ), PoolIntArray( 144, 143, 142 ), PoolIntArray( 147, 146, 145 ), PoolIntArray( 149, 148, 150 ), PoolIntArray( 150, 148, 151 ), PoolIntArray( 153, 152, 154 ), PoolIntArray( 154, 152, 155 ), PoolIntArray( 157, 156, 158 ), PoolIntArray( 158, 156, 159 ), PoolIntArray( 161, 160, 162 ), PoolIntArray( 162, 160, 163 ), PoolIntArray( 163, 160, 164 ), PoolIntArray( 166, 165, 167 ), PoolIntArray( 167, 165, 168 ), PoolIntArray( 171, 170, 169 ), PoolIntArray( 173, 172, 174 ), PoolIntArray( 174, 172, 175 ), PoolIntArray( 178, 177, 176 ), PoolIntArray( 180, 179, 181 ), PoolIntArray( 181, 179, 182 ) ]
-
-[sub_resource type="CubeMesh" id=4]
-
-[sub_resource type="ConcavePolygonShape" id=5]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
-[sub_resource type="ConcavePolygonShape" id=6]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
-[sub_resource type="ConcavePolygonShape" id=7]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+vertices = PoolVector3Array( -43.4, 0.4, -49.4, -49.4, 0.4, -49.4, -49.4, 0.4, -43.4, -49.4, 0.4, 43, -49.4, 0.4, 49.3, -43.4, 0.4, 49.3, 49.3, 0.4, -43.4, 49.3, 0.4, -49.4, 43, 0.4, -49.4, 43, 0.4, 49.3, 49.3, 0.4, 49.3, 49.3, 0.4, 43, -37.1, 0.4, -49.4, -43.4, 0.4, -49.4, -49.4, 0.4, -43.4, -49.4, 0.4, -37.1, -49.4, 0.4, 43, -43.4, 0.4, 49.3, -37.1, 0.4, 49.3, -49.4, 0.4, 36.7, 49.3, 0.4, -37.1, 49.3, 0.4, -43.4, 43, 0.4, -49.4, 36.7, 0.4, -49.4, 36.7, 0.4, 49.3, 43, 0.4, 49.3, 49.3, 0.4, 43, -0.199997, 0.4, -49.4, -6.5, 0.4, -49.4, -49.4, 0.4, -6.5, -49.4, 0.4, -0.199997, 18.1, 0.4, 49.3, 49.3, 0.4, 24.4, 49.3, 0.4, 18.1, 12.1, 0.4, 49.3, 49.3, 0.4, -6.5, 49.3, 0.4, -12.5, 12.1, 0.4, -49.4, 5.8, 0.4, -49.4, 36.7, 0.4, 49.3, 49.3, 0.4, 43, 49.3, 0.4, 36.7, 30.4, 0.4, 49.3, -31.1, 0.4, -49.4, -37.1, 0.4, -49.4, -49.4, 0.4, -37.1, -49.4, 0.4, -31.1, -49.4, 0.4, 36.7, -37.1, 0.4, 49.3, -31.1, 0.4, 49.3, -49.4, 0.4, 30.4, 49.3, 0.4, -31.1, 49.3, 0.4, -37.1, 36.7, 0.4, -49.4, 30.4, 0.4, -49.4, -12.5, 0.4, -49.4, -18.8, 0.4, -49.4, -49.4, 0.4, -18.8, -49.4, 0.4, -12.5, -49.4, 0.4, 12.1, -49.4, 0.4, 18.1, -18.8, 0.4, 49.3, -12.5, 0.4, 49.3, -49.4, 0.4, -0.199997, -49.4, 0.4, 5.8, -6.5, 0.4, 49.3, 49.3, 0.4, -18.8, 18.1, 0.4, -49.4, 12.1, 0.4, -49.4, 49.3, 0.4, -12.5, 30.4, 0.4, 49.3, 49.3, 0.4, 36.7, 49.3, 0.4, 30.4, 24.4, 0.4, 49.3, -24.8, 0.4, -49.4, -31.1, 0.4, -49.4, -49.4, 0.4, -31.1, -49.4, 0.4, -24.8, -49.4, 0.4, 24.4, -49.4, 0.4, 30.4, -31.1, 0.4, 49.3, -24.8, 0.4, 49.3, 49.3, 0.4, -31.1, 30.4, 0.4, -49.4, 24.4, 0.4, -49.4, 49.3, 0.4, -24.8, -49.4, 0.4, -0.199997, -6.5, 0.4, 49.3, -0.199997, 0.4, 49.3, 49.3, 0.4, 5.8, 49.3, 0.4, -0.199997, -0.199997, 0.4, -49.4, 5.8, 0.4, 49.3, 49.3, 0.4, 12.1, 49.3, 0.4, 5.8, -0.199997, 0.4, 49.3, 12.1, 0.4, 49.3, 49.3, 0.4, 18.1, 49.3, 0.4, 12.1, 5.8, 0.4, 49.3, 49.3, 0.4, -6.5, 5.8, 0.4, -49.4, -0.199997, 0.4, -49.4, 49.3, 0.4, -0.199997, 24.4, 0.4, 49.3, 49.3, 0.4, 30.4, 49.3, 0.4, 24.4, 18.1, 0.4, 49.3, -18.8, 0.4, -49.4, -24.8, 0.4, -49.4, -49.4, 0.4, -24.8, -49.4, 0.4, -18.8, -49.4, 0.4, 24.4, -24.8, 0.4, 49.3, -18.8, 0.4, 49.3, -49.4, 0.4, 18.1, 49.3, 0.4, -18.8, 49.3, 0.4, -24.8, 24.4, 0.4, -49.4, 18.1, 0.4, -49.4, -6.5, 0.4, -49.4, -12.5, 0.4, -49.4, -49.4, 0.4, -12.5, -49.4, 0.4, -6.5, -49.4, 0.4, 12.1, -12.5, 0.4, 49.3, -6.5, 0.4, 49.3, -49.4, 0.4, 5.8 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 21, 20, 22 ), PoolIntArray( 22, 20, 23 ), PoolIntArray( 26, 25, 24 ), PoolIntArray( 28, 27, 29 ), PoolIntArray( 29, 27, 30 ), PoolIntArray( 32, 31, 33 ), PoolIntArray( 33, 31, 34 ), PoolIntArray( 36, 35, 37 ), PoolIntArray( 37, 35, 38 ), PoolIntArray( 40, 39, 41 ), PoolIntArray( 41, 39, 42 ), PoolIntArray( 44, 43, 45 ), PoolIntArray( 45, 43, 46 ), PoolIntArray( 48, 47, 49 ), PoolIntArray( 49, 47, 50 ), PoolIntArray( 52, 51, 53 ), PoolIntArray( 53, 51, 54 ), PoolIntArray( 56, 55, 57 ), PoolIntArray( 57, 55, 58 ), PoolIntArray( 60, 59, 61 ), PoolIntArray( 61, 59, 62 ), PoolIntArray( 65, 64, 63 ), PoolIntArray( 67, 66, 68 ), PoolIntArray( 68, 66, 69 ), PoolIntArray( 71, 70, 72 ), PoolIntArray( 72, 70, 73 ), PoolIntArray( 75, 74, 76 ), PoolIntArray( 76, 74, 77 ), PoolIntArray( 79, 78, 80 ), PoolIntArray( 80, 78, 81 ), PoolIntArray( 83, 82, 84 ), PoolIntArray( 84, 82, 85 ), PoolIntArray( 87, 86, 88 ), PoolIntArray( 88, 86, 89 ), PoolIntArray( 89, 86, 90 ), PoolIntArray( 90, 86, 91 ), PoolIntArray( 93, 92, 94 ), PoolIntArray( 94, 92, 95 ), PoolIntArray( 97, 96, 98 ), PoolIntArray( 98, 96, 99 ), PoolIntArray( 101, 100, 102 ), PoolIntArray( 102, 100, 103 ), PoolIntArray( 105, 104, 106 ), PoolIntArray( 106, 104, 107 ), PoolIntArray( 109, 108, 110 ), PoolIntArray( 110, 108, 111 ), PoolIntArray( 113, 112, 114 ), PoolIntArray( 114, 112, 115 ), PoolIntArray( 117, 116, 118 ), PoolIntArray( 118, 116, 119 ), PoolIntArray( 121, 120, 122 ), PoolIntArray( 122, 120, 123 ), PoolIntArray( 125, 124, 126 ), PoolIntArray( 126, 124, 127 ) ]
 
 [sub_resource type="CubeMesh" id=8]
 material = ExtResource( 2 )
@@ -57,15 +46,6 @@ transform = Transform( 0.600591, 0.779045, -0.17994, 0.519092, -0.208745, 0.8288
 [node name="Chicken" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7 )
 
-[node name="Chicken2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -28 )
-
-[node name="Chicken4" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -16 )
-
-[node name="Chicken3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -7 )
-
 [node name="Navigation" type="Navigation" parent="." groups=[
 "nav",
 ]]
@@ -76,36 +56,6 @@ navmesh = SubResource( 3 )
 [node name="Environment" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 
-[node name="MeshInstance3" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -25 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Environment/MeshInstance3"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Environment/MeshInstance3/StaticBody"]
-shape = SubResource( 5 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4, 10, 2, -9 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Environment/MeshInstance2"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Environment/MeshInstance2/StaticBody"]
-shape = SubResource( 6 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Environment/MeshInstance"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Environment/MeshInstance/StaticBody"]
-shape = SubResource( 7 )
-
 [node name="Ground" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Environment"]
 mesh = SubResource( 8 )
 material/0 = null
@@ -115,13 +65,10 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Environment/Ground/StaticBody"]
 shape = SubResource( 9 )
 
-[node name="CornPickUp" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -13 )
-
 [node name="CornPickUp2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -13 )
 
 [node name="CornPickUp3" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -10 )
 
 [editable path="Player"]

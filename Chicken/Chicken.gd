@@ -15,7 +15,7 @@ onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
 enum STATES { IDLE, WALK, LOOK, TRAPPED, NO_CORN }
 
 var current_state = STATES.IDLE
-var player_ref = null
+var player_ref: Player = null
 var all_corn: Array = []
 var closest_corn = null
 var path = []
@@ -26,6 +26,7 @@ func _ready():
 	pickup_component.connect("got_pickup", self, "got_corn")
 	search_for_corn()
 	player_ref = get_tree().get_nodes_in_group("player")[0]
+	player_ref.connect("place_corn", self, "new_corn")
 	update_all_corn()
 	set_closest_corn()
 	#print(closest_corn)
@@ -74,8 +75,7 @@ func walk(delta):
 		
 		face_dir(dir, delta)
 	else:
-		# todo: rotate randomly?
-		set_state_idle()
+		set_state_no_corn()
 	
 	
 func look(delta):
@@ -196,3 +196,10 @@ func get_visible_corn():
 		if c.visible:
 			visible_corn.append(c)
 	return visible_corn
+
+func new_corn():
+	print("new corn")
+	update_all_corn()
+	set_closest_corn()
+	search_for_corn()
+	

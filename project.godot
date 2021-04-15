@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Pickup",
 "language": "GDScript",
 "path": "res://Corn/CornPickUp.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
-"Pickup": ""
+"Pickup": "",
+"Player": ""
 }
 
 [application]
