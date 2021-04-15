@@ -12,7 +12,7 @@ onready var pickup_component = $PickupComponent
 onready var timer = $Timer
 onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
 
-enum STATES { IDLE, WALK, LOOK, TRAPPED }
+enum STATES { IDLE, WALK, LOOK, TRAPPED, NO_CORN }
 
 var current_state = STATES.IDLE
 var player_ref = null
@@ -26,15 +26,23 @@ func _ready():
 	pickup_component.connect("got_pickup", self, "got_corn")
 	search_for_corn()
 	player_ref = get_tree().get_nodes_in_group("player")[0]
-	all_corn = get_tree().get_nodes_in_group("corn")
-	set_closest_corn(all_corn)
+	update_all_corn()
+	set_closest_corn()
 	#print(closest_corn)
 	move_component.init(self)
 
 
 func _process(delta):
 	can_see_player()
+	update_all_corn()
+	set_closest_corn()
+	if closest_corn == null:
+		move_component.freeze()
+		set_state_no_corn()
+		
 	match current_state:
+		STATES.NO_CORN:
+			no_corn()
 		STATES.IDLE:
 			idle(delta)
 		STATES.WALK:
@@ -44,6 +52,9 @@ func _process(delta):
 		STATES.TRAPPED:
 			trapped(delta)
 
+func no_corn():
+	pass
+	
 func idle(delta):
 	pass
 
@@ -81,25 +92,30 @@ func trapped(delta):
 	move_component.freeze()
 	collision_shape.disabled = true
 
+func set_state_no_corn():
+	current_state = STATES.NO_CORN
+	animation_player.play("look")
+	#print("no_Corn")
+	
 func set_state_idle():
 	current_state = STATES.IDLE
 	animation_player.play("Idle_loop")
-	print("idle")
+	#print("idle")
 
 func set_state_walk():
 	current_state = STATES.WALK
 	animation_player.play("walk_loop")
-	print("walk")
+	#print("walk")
 
 func set_state_look():
 	current_state = STATES.LOOK
 	animation_player.play("look", 2.0)
-	print("look")
+	#print("look")
 
 func set_state_trapped():
 	current_state = STATES.TRAPPED
 	animation_player.play("Idle_loop")
-	print("trapped")
+	#print("trapped")
 
 	
 func can_see_player():
@@ -129,11 +145,11 @@ func has_los_player():
 	else:
 		return false
 		
-func set_closest_corn(all_corn):
+func set_closest_corn():
 	var current_position = global_transform.origin + Vector3.UP
 	var closest = null
 	var best_distance = 99999999.0
-	for c in all_corn:
+	for c in get_visible_corn():
 		var corn_position = c.global_transform.origin + Vector3.UP
 		var distance = current_position.distance_squared_to(corn_position)
 		if distance < best_distance:
@@ -155,22 +171,28 @@ func face_dir(dir: Vector3, delta):
 		return false
 	
 func got_corn():
-	print("got corn")
-	all_corn.erase(closest_corn)
+	print(" ", self, "got corn")
 	closest_corn = null
 	move_component.freeze()
 	print(all_corn)
 	print(closest_corn)
-	if all_corn.size() > 0:
-		set_closest_corn(all_corn)
+	if get_visible_corn().size() > 0:
+		set_closest_corn()
 		set_state_idle()
 		timer.start()
 	
 func search_for_corn():
 	print("searching")
-	move_component.unfreeze()
-	set_state_look()
+	if get_visible_corn().size() > 0:
+		move_component.unfreeze()
+		set_state_look()
 	
+func update_all_corn():
+	all_corn = get_tree().get_nodes_in_group("corn")
 
-	
-	
+func get_visible_corn():
+	var visible_corn = []
+	for c in get_tree().get_nodes_in_group("corn"):
+		if c.visible:
+			visible_corn.append(c)
+	return visible_corn

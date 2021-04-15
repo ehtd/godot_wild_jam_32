@@ -16,4 +16,5 @@ func _ready():
 func on_area_enter(pickup: Pickup):
 	#print(pickup)
 	emit_signal("got_pickup")
-	pickup.queue_free()
+#	pickup.queue_free()
+	pickup.hide()

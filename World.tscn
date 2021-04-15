@@ -57,6 +57,15 @@ transform = Transform( 0.600591, 0.779045, -0.17994, 0.519092, -0.208745, 0.8288
 [node name="Chicken" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7 )
 
+[node name="Chicken2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -28 )
+
+[node name="Chicken4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -16 )
+
+[node name="Chicken3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -7 )
+
 [node name="Navigation" type="Navigation" parent="." groups=[
 "nav",
 ]]

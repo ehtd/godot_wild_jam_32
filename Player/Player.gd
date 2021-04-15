@@ -8,6 +8,8 @@ onready var camera = $Camera
 onready var move_component = $MoveComponent
 onready var raycast = $RayCast
 
+signal place_corn
+
 var corn = preload("res://Corn/CornPickUp.tscn")
 var corn_count = 0
 
@@ -61,5 +63,6 @@ func add_corn_to_position(position: Vector3):
 		get_tree().get_root().add_child(corn_instance)
 		corn_instance.global_transform.origin = position
 		corn_count = corn_count - 1
+		emit_signal("place_corn")
 
 		
