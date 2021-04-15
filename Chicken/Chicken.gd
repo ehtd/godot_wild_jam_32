@@ -8,22 +8,27 @@ onready var animation_player: AnimationPlayer = $chicken/AnimationPlayer
 onready var question_mark = $question_mark
 onready var move_component = $MoveComponent
 onready var collision_shape = $CollisionShape
+onready var pickup_component = $PickupComponent
+onready var timer = $Timer
 onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
 
 enum STATES { IDLE, WALK, LOOK, TRAPPED }
 
 var current_state = STATES.IDLE
 var player_ref = null
-var all_corn = null
+var all_corn: Array = []
 var closest_corn = null
 var path = []
 
+
 func _ready():
-	set_state_look()
+	timer.connect("timeout", self, "search_for_corn")
+	pickup_component.connect("got_pickup", self, "got_corn")
+	search_for_corn()
 	player_ref = get_tree().get_nodes_in_group("player")[0]
 	all_corn = get_tree().get_nodes_in_group("corn")
 	set_closest_corn(all_corn)
-	print(closest_corn)
+	#print(closest_corn)
 	move_component.init(self)
 
 
@@ -59,15 +64,13 @@ func walk(delta):
 		face_dir(dir, delta)
 	else:
 		# todo: rotate randomly?
-		set_state_look()
+		set_state_idle()
 	
 	
 func look(delta):
 	if closest_corn:
 		var current_position = global_transform.origin
 		var corn_position = closest_corn.global_transform.origin
-		path = nav.get_simple_path(current_position, corn_position)
-		
 		var dir = corn_position - current_position
 		var completed = face_dir(dir, delta)
 		if (completed):
@@ -81,18 +84,22 @@ func trapped(delta):
 func set_state_idle():
 	current_state = STATES.IDLE
 	animation_player.play("Idle_loop")
+	print("idle")
 
 func set_state_walk():
 	current_state = STATES.WALK
 	animation_player.play("walk_loop")
+	print("walk")
 
 func set_state_look():
 	current_state = STATES.LOOK
 	animation_player.play("look", 2.0)
+	print("look")
 
 func set_state_trapped():
 	current_state = STATES.TRAPPED
 	animation_player.play("Idle_loop")
+	print("trapped")
 
 	
 func can_see_player():
@@ -133,7 +140,7 @@ func set_closest_corn(all_corn):
 			closest = c
 			best_distance = distance
 			
-		print(distance)
+		#print(distance)
 		
 	closest_corn = closest
 	
@@ -147,7 +154,23 @@ func face_dir(dir: Vector3, delta):
 		rotation.y += deg2rad(turn_speed) * delta * turn_right
 		return false
 	
+func got_corn():
+	print("got corn")
+	all_corn.erase(closest_corn)
+	closest_corn = null
+	move_component.freeze()
+	print(all_corn)
+	print(closest_corn)
+	if all_corn.size() > 0:
+		set_closest_corn(all_corn)
+		set_state_idle()
+		timer.start()
 	
+func search_for_corn():
+	print("searching")
+	move_component.unfreeze()
+	set_state_look()
 	
+
 	
 	
