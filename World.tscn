@@ -3,8 +3,8 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ground_lmaterial.tres" type="Material" id=2]
 [ext_resource path="res://Chicken/Chicken.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Corn/CornPickUp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence/Fence.tscn" type="PackedScene" id=5]
+[ext_resource path="res://cage/cage.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ProceduralSky" id=1]
 radiance_size = 3
@@ -45,7 +45,7 @@ environment = SubResource( 2 )
 transform = Transform( 0.600591, 0.779045, -0.17994, 0.519092, -0.208745, 0.828836, 0.608139, -0.591197, -0.529766, 0, 20, 0 )
 
 [node name="Chicken" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115262, 0, -0.256169 )
 
 [node name="Chicken2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -7 )
@@ -211,10 +211,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.126, 1, -24.6182 )
 [node name="Fence6" parent="Navigation/NavigationMeshInstance/Environment/fence_wall4" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.586, 1, -24.6182 )
 
-[node name="CornPickUp2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -13 )
-
-[node name="CornPickUp3" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -10 )
+[node name="cage" parent="." instance=ExtResource( 6 )]
 
 [editable path="Player"]
