@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ground_lmaterial.tres" type="Material" id=2]
 [ext_resource path="res://Chicken/Chicken.tscn" type="PackedScene" id=3]
+[ext_resource path="res://storage/Storage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence/Fence.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ProceduralSky" id=1]
@@ -18,8 +19,8 @@ background_energy = 5.0
 tonemap_mode = 3
 
 [sub_resource type="NavigationMesh" id=3]
-vertices = PoolVector3Array( -23.7628, 0.4, 11.875, -23.7628, 0.4, 23.875, -12.0628, 0.4, 23.875, -12.0628, 0.4, -24.125, -23.7628, 0.4, -24.125, -23.7628, 0.4, -12.125, 11.9372, 0.4, 23.875, 23.9372, 0.4, 23.875, 23.9372, 0.4, 11.875, 23.9372, 0.4, -12.125, 23.9372, 0.4, -24.125, 11.9372, 0.4, -24.125, -23.7628, 0.4, 11.875, -12.0628, 0.4, 23.875, -0.0628204, 0.4, 23.875, -23.7628, 0.4, -0.125, -0.0628204, 0.4, -24.125, -12.0628, 0.4, -24.125, -23.7628, 0.4, -12.125, -23.7628, 0.4, -0.125, -0.0628204, 0.4, 23.875, 11.9372, 0.4, 23.875, 23.9372, 0.4, 11.875, 23.9372, 0.4, -0.125, 23.9372, 0.4, -12.125, 11.9372, 0.4, -24.125, -0.0628204, 0.4, -24.125, -23.7628, 0.4, -0.125, -0.0628204, 0.4, 23.875, 23.9372, 0.4, 11.875, 23.9372, 0.4, -0.125, 11.9372, 0.4, -24.125 )
-polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 22, 21, 20 ), PoolIntArray( 25, 24, 23 ), PoolIntArray( 31, 30, 26 ), PoolIntArray( 26, 30, 29 ), PoolIntArray( 26, 29, 28 ), PoolIntArray( 26, 28, 27 ) ]
+vertices = PoolVector3Array( -0.0627995, 0.4, 23.875, -0.0627995, 0.4, 16.075, -1.8628, 0.4, 15.775, -12.0628, 0.4, 23.875, -0.0627995, 0.4, -24.125, -12.0628, 0.4, -24.125, -23.7628, 0.4, -12.125, -23.7628, 0.4, -0.125, -0.0627995, 0.4, 12.475, -12.0628, 0.4, 23.875, -1.8628, 0.4, 15.775, -1.8628, 0.4, 12.775, -23.7628, 0.4, 11.875, -23.7628, 0.4, 23.875, -12.0628, 0.4, -24.125, -23.7628, 0.4, -24.125, -23.7628, 0.4, -12.125, -23.7628, 0.4, 11.875, -1.8628, 0.4, 12.775, -0.0627995, 0.4, 12.475, -23.7628, 0.4, -0.125, 1.7372, 0.4, 15.775, -0.0627995, 0.4, 16.075, -0.0627995, 0.4, 23.875, 11.9372, 0.4, 23.875, 23.9372, 0.4, -0.125, 23.9372, 0.4, -12.125, 11.9372, 0.4, -24.125, 1.7372, 0.4, 12.775, 1.7372, 0.4, 15.775, 11.9372, 0.4, 23.875, 23.9372, 0.4, 23.875, 23.9372, 0.4, 11.875, -0.0627995, 0.4, 12.475, 1.7372, 0.4, 12.775, 23.9372, 0.4, 11.875, 23.9372, 0.4, -0.125, 11.9372, 0.4, -24.125, -0.0627995, 0.4, -24.125, 23.9372, 0.4, -12.125, 23.9372, 0.4, -24.125, 11.9372, 0.4, -24.125 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 7, 4, 8 ), PoolIntArray( 10, 9, 11 ), PoolIntArray( 11, 9, 13 ), PoolIntArray( 11, 13, 12 ), PoolIntArray( 16, 15, 14 ), PoolIntArray( 18, 17, 19 ), PoolIntArray( 19, 17, 20 ), PoolIntArray( 22, 21, 23 ), PoolIntArray( 23, 21, 24 ), PoolIntArray( 27, 26, 25 ), PoolIntArray( 29, 28, 30 ), PoolIntArray( 30, 28, 31 ), PoolIntArray( 31, 28, 32 ), PoolIntArray( 34, 33, 35 ), PoolIntArray( 35, 33, 36 ), PoolIntArray( 36, 33, 37 ), PoolIntArray( 37, 33, 38 ), PoolIntArray( 41, 40, 39 ) ]
 
 [sub_resource type="CubeMesh" id=4]
 material = ExtResource( 2 )
@@ -224,5 +225,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.126, 1, -24.6182 )
 
 [node name="Fence6" parent="Navigation/NavigationMeshInstance/Environment/fence_wall4" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.586, 1, -24.6182 )
+
+[node name="Storage" parent="Navigation/NavigationMeshInstance/Environment" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 14.278 )
 
 [editable path="Player"]
