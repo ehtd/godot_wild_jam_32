@@ -42,7 +42,10 @@ jump_force = 0
 environment = SubResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.600591, 0.779045, -0.17994, 0.519092, -0.208745, 0.828836, 0.608139, -0.591197, -0.529766, 0, 20, 0 )
+transform = Transform( 0.561544, 0.56424, -0.605229, 0.794273, -0.162533, 0.585417, 0.231947, -0.809454, -0.53943, 0, 20, 0 )
+light_color = Color( 0.901961, 0.741176, 0.364706, 1 )
+light_energy = 2.0
+shadow_enabled = true
 
 [node name="Chicken" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115262, 0, -9.81141 )

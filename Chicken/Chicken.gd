@@ -192,8 +192,8 @@ func got_corn():
 	print(" ", self, "got corn")
 	closest_corn = null
 	move_component.freeze()
-	print(all_corn)
-	print(closest_corn)
+#	print(all_corn)
+#	print(closest_corn)
 	if get_visible_corn().size() > 0:
 #		set_closest_corn()
 		set_state_idle()
@@ -216,7 +216,7 @@ func get_visible_corn():
 	return visible_corn
 
 func new_corn():
-	print("new corn")
+#	print("new corn")
 	update_all_corn()
 	set_closest_corn()
 	search_for_corn()
