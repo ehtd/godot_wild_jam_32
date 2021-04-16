@@ -12,7 +12,7 @@ onready var pickup_component = $PickupComponent
 onready var timer = $Timer
 onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
 
-enum STATES { IDLE, WALK, LOOK, TRAPPED, NO_CORN }
+enum STATES { IDLE, WALK, LOOK, TRAPPED, NO_CORN, SCARED }
 
 var current_state = STATES.IDLE
 var player_ref: Player = null
@@ -28,15 +28,21 @@ func _ready():
 	player_ref.connect("place_corn", self, "new_corn")
 	update_all_corn()
 	set_closest_corn()
-	search_for_corn()
+	set_state_look()
+#	search_for_corn()
 	#print(closest_corn)
 	move_component.init(self)
 
 
 func _process(delta):
-	can_see_player()
 	update_all_corn()
 	set_closest_corn()
+	
+#	if can_see_player():
+#		set_state_scared()
+#	else:
+#		search_for_corn()
+
 	if closest_corn == null:
 		move_component.freeze()
 		set_state_no_corn()
@@ -52,6 +58,8 @@ func _process(delta):
 			look(delta)
 		STATES.TRAPPED:
 			trapped(delta)
+		STATES.SCARED:
+			scared(delta)
 
 func no_corn(delta):
 	pass
@@ -89,6 +97,9 @@ func look(delta):
 			move_component.unfreeze()
 			set_state_walk()
 
+func scared(delta):
+	move_component.freeze()
+	pass
 	
 func trapped(delta):
 	move_component.freeze()
@@ -107,7 +118,7 @@ func set_state_idle():
 func set_state_walk():
 	current_state = STATES.WALK
 	animation_player.play("walk_loop")
-	#print("walk")
+	print("walk")
 
 func set_state_look():
 	current_state = STATES.LOOK
@@ -119,6 +130,10 @@ func set_state_trapped():
 	animation_player.play("Idle_loop")
 	#print("trapped")
 
+func set_state_scared():
+	current_state = STATES.SCARED
+	animation_player.play("Idle_loop")
+	print("scared")
 	
 func can_see_player():
 	var direction_to_player = global_transform.origin.direction_to(player_ref.global_transform.origin)
@@ -184,7 +199,7 @@ func got_corn():
 		timer.start()
 	
 func search_for_corn():
-	print("searching")
+	#print("searching")
 	if get_visible_corn().size() > 0:
 #		move_component.unfreeze()
 		set_state_look()
