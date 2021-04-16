@@ -22,11 +22,11 @@ tonemap_mode = 3
 vertices = PoolVector3Array( -23.7628, 0.4, 11.875, -23.7628, 0.4, 23.875, -12.0628, 0.4, 23.875, -12.0628, 0.4, -24.125, -23.7628, 0.4, -24.125, -23.7628, 0.4, -12.125, 11.9372, 0.4, 23.875, 23.9372, 0.4, 23.875, 23.9372, 0.4, 11.875, 23.9372, 0.4, -12.125, 23.9372, 0.4, -24.125, 11.9372, 0.4, -24.125, -23.7628, 0.4, 11.875, -12.0628, 0.4, 23.875, -0.0628204, 0.4, 23.875, -23.7628, 0.4, -0.125, -0.0628204, 0.4, -24.125, -12.0628, 0.4, -24.125, -23.7628, 0.4, -12.125, -23.7628, 0.4, -0.125, -0.0628204, 0.4, 23.875, 11.9372, 0.4, 23.875, 23.9372, 0.4, 11.875, 23.9372, 0.4, -0.125, 23.9372, 0.4, -12.125, 11.9372, 0.4, -24.125, -0.0628204, 0.4, -24.125, -23.7628, 0.4, -0.125, -0.0628204, 0.4, 23.875, 23.9372, 0.4, 11.875, 23.9372, 0.4, -0.125, 11.9372, 0.4, -24.125 )
 polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 22, 21, 20 ), PoolIntArray( 25, 24, 23 ), PoolIntArray( 31, 30, 26 ), PoolIntArray( 26, 30, 29 ), PoolIntArray( 26, 29, 28 ), PoolIntArray( 26, 28, 27 ) ]
 
-[sub_resource type="CubeMesh" id=8]
+[sub_resource type="CubeMesh" id=4]
 material = ExtResource( 2 )
 size = Vector3( 50, 2, 50 )
 
-[sub_resource type="ConcavePolygonShape" id=9]
+[sub_resource type="ConcavePolygonShape" id=5]
 data = PoolVector3Array( -50, 1, 50, 50, 1, 50, -50, -1, 50, 50, 1, 50, 50, -1, 50, -50, -1, 50, 50, 1, -50, -50, 1, -50, 50, -1, -50, -50, 1, -50, -50, -1, -50, 50, -1, -50, 50, 1, 50, 50, 1, -50, 50, -1, 50, 50, 1, -50, 50, -1, -50, 50, -1, 50, -50, 1, -50, -50, 1, 50, -50, -1, -50, -50, 1, 50, -50, -1, 50, -50, -1, -50, 50, 1, 50, -50, 1, 50, 50, 1, -50, -50, 1, 50, -50, 1, -50, 50, 1, -50, -50, -1, 50, 50, -1, 50, -50, -1, -50, 50, -1, 50, 50, -1, -50, -50, -1, -50 )
 
 [node name="World" type="Spatial"]
@@ -61,13 +61,13 @@ navmesh = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 
 [node name="Ground" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Environment"]
-mesh = SubResource( 8 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Environment/Ground"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Environment/Ground/StaticBody"]
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 
 [node name="fence_wall" type="Spatial" parent="Navigation/NavigationMeshInstance/Environment"]
 

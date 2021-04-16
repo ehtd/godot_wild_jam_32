@@ -14,6 +14,7 @@ var pressed_jump = false
 var movement_vector: Vector3 = Vector3()
 var velocity: Vector3 = Vector3()
 var snap_vector: Vector3 = Vector3()
+var fps_setting = ProjectSettings.get_setting("physics/common/physics_fps")
 
 signal movement_info
 
@@ -41,19 +42,9 @@ func _physics_process(delta):
 		current_movement_vector = current_movement_vector.rotated(Vector3.UP, kinematic_body.rotation.y)
 
 	velocity += movement_acceleration * current_movement_vector - velocity * Vector3(drag, 0, drag) + gravity * Vector3.DOWN * delta
-	velocity = kinematic_body.move_and_slide_with_snap(velocity, snap_vector, Vector3.UP)
-	
-	var grounded = kinematic_body.is_on_floor()
-	if grounded:
-		velocity.y = -0.01
-	if grounded and pressed_jump:
-		velocity.y = jump_force
-		snap_vector = Vector3.ZERO
-	else:
-		snap_vector = Vector3.DOWN
+	kinematic_body.move_and_slide_with_snap(velocity, snap_vector, Vector3.UP)
 
-	pressed_jump = false	
-	emit_signal("movement_info", velocity, grounded)
+	
 	
 func freeze():
 	frozen = true

@@ -9,6 +9,7 @@ export var max_corn_count = 7
 onready var camera = $Camera
 onready var move_component = $MoveComponent
 onready var raycast = $RayCast
+onready var fps_label = $CanvasLayer/Label
 
 signal place_corn
 
@@ -22,6 +23,7 @@ func _ready():
 
 
 func _process(_delta):
+	fps_label.text = str(Engine.get_frames_per_second())
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
