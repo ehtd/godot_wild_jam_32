@@ -32,6 +32,7 @@ func _ready():
 #	search_for_corn()
 	#print(closest_corn)
 	move_component.init(self)
+	question_mark.hide()
 
 
 func _process(delta):
@@ -118,7 +119,7 @@ func set_state_idle():
 func set_state_walk():
 	current_state = STATES.WALK
 	animation_player.play("walk_loop")
-	print("walk")
+	#print("walk")
 
 func set_state_look():
 	current_state = STATES.LOOK
@@ -133,7 +134,7 @@ func set_state_trapped():
 func set_state_scared():
 	current_state = STATES.SCARED
 	animation_player.play("Idle_loop")
-	print("scared")
+	#print("scared")
 	
 func can_see_player():
 	var direction_to_player = global_transform.origin.direction_to(player_ref.global_transform.origin)

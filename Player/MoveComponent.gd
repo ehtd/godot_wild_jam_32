@@ -34,7 +34,7 @@ func set_movement_vector_as_normalized(_movement_vector: Vector3):
 	
 func _physics_process(delta):
 	if frozen:
-		print("frozen")
+		#print("frozen")
 		return
 	
 	var current_movement_vector = movement_vector
@@ -48,11 +48,11 @@ func _physics_process(delta):
 	
 	
 func freeze():
-	print("freezing")
+	#print("freezing")
 	frozen = true
 	
 func unfreeze():
-	print("unfreeze")
+	#print("unfreeze")
 	frozen = false
 	
 

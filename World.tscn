@@ -26,7 +26,7 @@ material = ExtResource( 2 )
 size = Vector3( 50, 2, 50 )
 
 [sub_resource type="ConcavePolygonShape" id=5]
-data = PoolVector3Array( -50, 1, 50, 50, 1, 50, -50, -1, 50, 50, 1, 50, 50, -1, 50, -50, -1, 50, 50, 1, -50, -50, 1, -50, 50, -1, -50, -50, 1, -50, -50, -1, -50, 50, -1, -50, 50, 1, 50, 50, 1, -50, 50, -1, 50, 50, 1, -50, 50, -1, -50, 50, -1, 50, -50, 1, -50, -50, 1, 50, -50, -1, -50, -50, 1, 50, -50, -1, 50, -50, -1, -50, 50, 1, 50, -50, 1, 50, 50, 1, -50, -50, 1, 50, -50, 1, -50, 50, 1, -50, -50, -1, 50, 50, -1, 50, -50, -1, -50, 50, -1, 50, 50, -1, -50, -50, -1, -50 )
+data = PoolVector3Array( -25, 1, 25, 25, 1, 25, -25, -1, 25, 25, 1, 25, 25, -1, 25, -25, -1, 25, 25, 1, -25, -25, 1, -25, 25, -1, -25, -25, 1, -25, -25, -1, -25, 25, -1, -25, 25, 1, 25, 25, 1, -25, 25, -1, 25, 25, 1, -25, 25, -1, -25, 25, -1, 25, -25, 1, -25, -25, 1, 25, -25, -1, -25, -25, 1, 25, -25, -1, 25, -25, -1, -25, 25, 1, 25, -25, 1, 25, 25, 1, -25, -25, 1, 25, -25, 1, -25, 25, 1, -25, -25, -1, 25, 25, -1, 25, -25, -1, -25, 25, -1, 25, 25, -1, -25, -25, -1, -25 )
 
 [node name="World" type="Spatial"]
 
@@ -46,6 +46,24 @@ transform = Transform( 0.600591, 0.779045, -0.17994, 0.519092, -0.208745, 0.8288
 [node name="Chicken" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115262, 0, -9.81141 )
 
+[node name="Chicken2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.325618, 0, 0.945502, 0, 1, 0, -0.945502, 0, 0.325618, -5.16904, 0, -9.81141 )
+
+[node name="Chicken3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.208919, 0, 0.977933, 0, 1, 0, -0.977933, 0, 0.208919, 0.115262, 0, 3.78419 )
+
+[node name="Chicken4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.84587, 0, -17.2915 )
+
+[node name="Chicken5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9685, 0, -9.81141 )
+
+[node name="Chicken6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.280533, 0, -0.959844, 0, 1, 0, 0.959844, 0, 0.280533, 0.115262, 0, 1.65907 )
+
+[node name="Chicken7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09177, 0, -9.81141 )
+
 [node name="Navigation" type="Navigation" parent="." groups=[
 "nav",
 ]]
@@ -60,9 +78,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Environment/Ground"]
+[node name="StaticBody2" type="StaticBody" parent="Navigation/NavigationMeshInstance/Environment/Ground"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Environment/Ground/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Environment/Ground/StaticBody2"]
 shape = SubResource( 5 )
 
 [node name="fence_wall" type="Spatial" parent="Navigation/NavigationMeshInstance/Environment"]

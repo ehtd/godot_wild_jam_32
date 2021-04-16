@@ -5,6 +5,7 @@
 [sub_resource type="BoxShape" id=1]
 
 [node name="Fence" type="StaticBody"]
+collision_layer = 32
 
 [node name="fence" parent="." instance=ExtResource( 1 )]
 

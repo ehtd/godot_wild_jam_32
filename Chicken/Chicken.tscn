@@ -42,7 +42,7 @@ autoplay = "Idle_loop"
 
 [node name="MoveComponent" parent="." instance=ExtResource( 7 )]
 movement_acceleration = 2
-max_speed = 10
+max_speed = 3
 ignore_rotation = true
 
 [node name="PickupComponent" type="Area" parent="."]

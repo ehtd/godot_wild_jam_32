@@ -52,7 +52,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("grab"):
 		var result = can_grab_chicken()["result"]
 		if result:
-			add_corn_to_position(result.position)
+			pass
+
 		
 		
 func _input(event):
@@ -64,6 +65,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 		var result = get_ray_intersected_dictionary(event.position, 1, ray_length_corn)
 		if result:
+			print(result)
 			add_corn_to_position(result.position)
 
 func update_ui():
