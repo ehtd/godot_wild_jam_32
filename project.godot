@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
-}, {
-"base": "Spatial",
-"class": "Storage",
-"language": "GDScript",
-"path": "res://storage/Storage.gd"
 } ]
 _global_script_class_icons={
 "Pickup": "",
-"Player": "",
-"Storage": ""
+"Player": ""
 }
 
 [application]

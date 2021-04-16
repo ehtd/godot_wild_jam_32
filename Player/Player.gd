@@ -18,6 +18,7 @@ var crosshair_normal_tex = null
 var crosshair_grab_tex = null
 
 signal place_corn
+signal open_storage
 
 var corn = preload("res://Corn/CornPickUp.tscn")
 var corn_count = 0
@@ -58,6 +59,7 @@ func _process(_delta):
 		var result = can_grab_storage()["result"]
 		if result:
 			corn_count = max_corn_count
+			emit_signal("open_storage")
 
 		
 		
