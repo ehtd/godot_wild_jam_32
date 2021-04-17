@@ -79,7 +79,10 @@ func _input(event):
 #			print(id_to_check)
 			if id_to_check == ground.get_instance_id():
 				add_corn_to_position(result.position)
-
+				
+	if event.is_action_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+	
 func update_ui():
 	fps_label.text = str(Engine.get_frames_per_second())
 	corn_count_label.text = " x " + str(corn_count)

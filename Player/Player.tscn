@@ -65,13 +65,13 @@ __meta__ = {
 
 [node name="press_e" type="RichTextLabel" parent="CanvasLayer"]
 anchor_left = 0.5
-anchor_top = 0.442
+anchor_top = 0.431
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -43.0
-margin_top = -16.2
-margin_right = 63.0
-margin_bottom = -15.0
+anchor_bottom = 0.431
+margin_left = -45.6378
+margin_top = -7.53857
+margin_right = 54.3622
+margin_bottom = 21.4614
 custom_fonts/normal_font = ExtResource( 4 )
 text = "Press E"
 fit_content_height = true
@@ -80,12 +80,10 @@ __meta__ = {
 }
 
 [node name="corn_label" type="RichTextLabel" parent="CanvasLayer"]
-anchor_left = 0.056
-anchor_top = 0.043
 anchor_right = 0.056
 anchor_bottom = 0.043
-margin_left = 3.2
-margin_top = -6.8
+margin_left = 50.0
+margin_top = 20.0
 margin_right = 111.2
 margin_bottom = 24.2
 custom_fonts/normal_font = ExtResource( 4 )
