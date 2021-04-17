@@ -2,21 +2,22 @@
 
 [ext_resource path="res://ground_lmaterial.tres" type="Material" id=1]
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=1]
 material = ExtResource( 1 )
 size = Vector3( 50, 2, 50 )
 
-[sub_resource type="ConcavePolygonShape" id=5]
+[sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( -25, 1, 25, 25, 1, 25, -25, -1, 25, 25, 1, 25, 25, -1, 25, -25, -1, 25, 25, 1, -25, -25, 1, -25, 25, -1, -25, -25, 1, -25, -25, -1, -25, 25, -1, -25, 25, 1, 25, 25, 1, -25, 25, -1, 25, 25, 1, -25, 25, -1, -25, 25, -1, 25, -25, 1, -25, -25, 1, 25, -25, -1, -25, -25, 1, 25, -25, -1, 25, -25, -1, -25, 25, 1, 25, -25, 1, 25, 25, 1, -25, -25, 1, 25, -25, 1, -25, 25, 1, -25, -25, -1, 25, 25, -1, 25, -25, -1, -25, 25, -1, 25, 25, -1, -25, -25, -1, -25 )
 
 [node name="Ground" type="MeshInstance" groups=[
 "ground",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167122, 3.8147e-06, -0.0713024 )
-mesh = SubResource( 4 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="StaticBody2" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-shape = SubResource( 5 )
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, -4, 0 )
+shape = SubResource( 2 )

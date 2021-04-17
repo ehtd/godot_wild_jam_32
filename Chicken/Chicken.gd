@@ -24,8 +24,10 @@ var all_corn: Array = []
 var closest_corn = null
 var path = []
 var chicken_speed = [0.2, 0.5, 2, 3, 1, 0.5, 0.2, 0.1]
+var chicken_look_speed = [1.7, 1.5, 1.6, 2.0, 1.2]
 onready var _egg = preload("res://egg/egg.tscn")
 var corn_ate_count = 0
+var look_speed = 2.0
 
 func _ready():
 	randomize() 
@@ -42,8 +44,10 @@ func _ready():
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-
 	move_component.set_custom_speed(randi() % chicken_speed.size())
+	rng.randomize()
+	look_speed = randi() % chicken_look_speed.size()
+	
 	question_mark.hide()
 
 
@@ -120,7 +124,7 @@ func trapped(delta):
 
 func set_state_no_corn():
 	current_state = STATES.NO_CORN
-	animation_player.play("look")
+	animation_player.play("look", -1.0, look_speed)
 	#print("no_Corn")
 	
 func set_state_idle():
@@ -135,7 +139,7 @@ func set_state_walk():
 
 func set_state_look():
 	current_state = STATES.LOOK
-	animation_player.play("look", 2.0)
+	animation_player.play("look", -1.0, look_speed)
 	#print("look")
 
 func set_state_trapped():
