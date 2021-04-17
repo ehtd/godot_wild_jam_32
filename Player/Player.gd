@@ -89,7 +89,7 @@ func update_ui():
 	corn_count_label.text = " x " + str(corn_count)
 	var chicken_count = get_tree().get_nodes_in_group("chicken").size()
 	chicken_count_label.text = " x " + str(chicken_count)
-	if can_grab_item(4+64)["can_grab"]:
+	if can_grab_item(64)["can_grab"]:
 		set_crosshair_grab()
 	else:
 		set_crosshair_normal()
