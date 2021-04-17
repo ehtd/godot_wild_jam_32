@@ -28,6 +28,8 @@ var corn_count = 0
 var storage = null
 var ground = null
 
+var infinite_corn = false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	move_component.init(self)
@@ -64,6 +66,10 @@ func _process(_delta):
 			corn_count = max_corn_count
 			emit_signal("open_storage")
 
+	if Input.is_action_just_pressed("infinite_corn"):
+		infinite_corn = !infinite_corn
+		if infinite_corn:
+			corn_count = max_corn_count
 		
 		
 func _input(event):
@@ -123,11 +129,15 @@ func get_ray_intersected_dictionary(coordinates: Vector2, collision_mask: int, r
 	return result
 		
 func add_corn_to_position(position: Vector3):
-	if corn_count > 0:
+	if corn_count > 0 or infinite_corn:
 		var corn_instance = corn.instance()
 		get_tree().get_root().add_child(corn_instance)
 		corn_instance.global_transform.origin = position
-		corn_count = corn_count - 1
+		if infinite_corn:
+			corn_count = max_corn_count
+		else:
+			corn_count = corn_count - 1
+			
 		emit_signal("place_corn")
 
 func set_crosshair_normal():
