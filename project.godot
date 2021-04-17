@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [display]
 
 window/size/width=800
+window/size/fullscreen=true
 
 [input]
 
@@ -98,5 +99,6 @@ quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
 quality/depth_prepass/enable=false
 quality/subsurface_scattering/quality=0
+quality/filters/msaa=4
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"
