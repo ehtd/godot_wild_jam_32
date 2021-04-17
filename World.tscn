@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ground_lmaterial.tres" type="Material" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://cloud_layer2.gd" type="Script" id=8]
 [ext_resource path="res://grass/grass.glb" type="PackedScene" id=9]
 [ext_resource path="res://grass/grass_yellow.tscn" type="PackedScene" id=10]
+[ext_resource path="res://dirt/dirt.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ProceduralSky" id=1]
 radiance_size = 3
@@ -427,5 +428,55 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79411, 0, -4.80989 )
 
 [node name="grass_yellow12" parent="grass" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52633, 0, -11.5171 )
+
+[node name="dirt" type="Spatial" parent="."]
+
+[node name="dirt" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14469, 0.00826554, 12.7414 )
+
+[node name="dirt2" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.656033, 0.00826554, 12.7414 )
+
+[node name="dirt8" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 0.341229, 0, 0.313934, 0, 1, 0, -0.275681, 0, 0.388577, -9.80885, -0.00270076, -2.79962 )
+
+[node name="dirt9" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 0.649564, 0, -0.206555, 0, 1, 0, 0.235755, 0, 0.569111, -10.6997, -0.00270076, -1.38638 )
+
+[node name="dirt10" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1.22442, 0, -0.389352, 0, 1, 0, 0.451509, 0, 1.08994, -0.42778, -0.00270076, -23.8668 )
+
+[node name="dirt13" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 4.19602, 0, -1.33429, 0, 1, 0, 1.5473, 0, 3.73518, 15.3384, -0.00270076, -0.296366 )
+
+[node name="dirt14" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 4.19602, 0, -1.33429, 0, 1, 0, 1.5473, 0, 3.73518, 17.8604, -0.00270076, 3.33905 )
+
+[node name="dirt15" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 4.19602, 0, -1.33429, 0, 1, 0, 1.5473, 0, 3.73518, 17.8604, -0.00270076, -6.99435 )
+
+[node name="dirt16" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1.19888, 0, -1.52011, 0, 1, 0, 1.72629, 0, 1.07881, -15.9875, -0.00270076, 10.6673 )
+
+[node name="dirt11" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1.22442, 0, -0.389352, 0, 1, 0, 0.451509, 0, 1.08994, 0.729565, -0.00270076, -22.6328 )
+
+[node name="dirt12" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( -0.582632, 0, -0.16091, 0, 1, 0, 0.435819, 0, -0.429603, -2.23292, -0.00270076, -21.821 )
+
+[node name="dirt3" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03692, 0.00826554, 13.2144 )
+
+[node name="dirt4" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62792, 0.00826554, 14.1828 )
+
+[node name="dirt5" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856261, 0.00826554, 15.2585 )
+
+[node name="dirt6" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.566415, 0.00826554, 15.2585 )
+
+[node name="dirt7" parent="dirt" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840458, 0.00826554, 14.1906 )
 
 [editable path="Player"]
