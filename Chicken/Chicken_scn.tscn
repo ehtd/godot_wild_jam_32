@@ -58,4 +58,7 @@ shape = SubResource( 2 )
 wait_time = 2.0
 one_shot = true
 
+[node name="egg_spawn_point" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.779808 )
+
 [editable path="chicken"]

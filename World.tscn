@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Chicken/Chicken.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Chicken/Chicken_scn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://storage/Storage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence/Fence.tscn" type="PackedScene" id=5]
 [ext_resource path="res://cloud/cloud.glb" type="PackedScene" id=6]
@@ -42,7 +42,9 @@ bias = 1.5
 normal_bias = 0.0
 propagation = 0.7
 
-[node name="World" type="Spatial"]
+[node name="World" type="Spatial" groups=[
+"main_world",
+]]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.18275, 0 )
@@ -63,24 +65,6 @@ shadow_color = Color( 0.270588, 0.290196, 0.203922, 1 )
 
 [node name="Chicken" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115262, 0, -9.81141 )
-
-[node name="Chicken2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.325618, 0, 0.945502, 0, 1, 0, -0.945502, 0, 0.325618, -5.16904, 0, -9.81141 )
-
-[node name="Chicken3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.208919, 0, 0.977933, 0, 1, 0, -0.977933, 0, 0.208919, 0.115262, 0, 3.78419 )
-
-[node name="Chicken4" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.84587, 0, -17.2915 )
-
-[node name="Chicken5" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9685, 0, -9.81141 )
-
-[node name="Chicken6" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.280533, 0, -0.959844, 0, 1, 0, 0.959844, 0, 0.280533, 0.115262, 0, 1.65907 )
-
-[node name="Chicken7" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09177, 0, -9.81141 )
 
 [node name="Navigation" type="Navigation" parent="." groups=[
 "nav",

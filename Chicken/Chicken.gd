@@ -3,6 +3,8 @@ extends Spatial
 export var sight_angle = 90
 export var sight_distance = 2 
 export var turn_speed = 100
+export var corns_to_hatch = 5
+
 
 onready var animation_player: AnimationPlayer = $chicken/AnimationPlayer
 onready var question_mark = $question_mark
@@ -11,6 +13,7 @@ onready var collision_shape = $CollisionShape
 onready var pickup_component = $PickupComponent
 onready var timer = $Timer
 onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
+onready var spawn_point = $egg_spawn_point
 
 enum STATES { IDLE, WALK, LOOK, TRAPPED, NO_CORN, SCARED }
 
@@ -20,9 +23,11 @@ var all_corn: Array = []
 var closest_corn = null
 var path = []
 var chicken_speed = [0.2, 0.5, 2, 3, 1, 0.5, 0.2, 0.1]
+onready var _egg = preload("res://egg/egg.tscn")
+var corn_ate_count = 0
 
 func _ready():
-	randomize()
+	randomize() 
 	timer.connect("timeout", self, "search_for_corn")
 	pickup_component.connect("got_pickup", self, "got_corn")
 	player_ref = get_tree().get_nodes_in_group("player")[0]
@@ -195,7 +200,16 @@ func face_dir(dir: Vector3, delta):
 		return false
 	
 func got_corn():
-#	print(" ", self, "got corn")
+	print(" ", self, "got corn")
+	corn_ate_count = corn_ate_count + 1
+	if (corn_ate_count >= corns_to_hatch):
+		print("about to hatch")
+		corn_ate_count = 0
+		var egg_instance = _egg.instance()
+		get_tree().get_root().add_child(egg_instance)
+		egg_instance.global_transform.origin = spawn_point.global_transform.origin
+		
+		
 	closest_corn = null
 	move_component.freeze()
 #	print(all_corn)
