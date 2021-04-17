@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Chicken/chicken.glb" type="PackedScene" id=1]
 [ext_resource path="res://Chicken/chicken_white.material" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://indicators/question_mark.tscn" type="PackedScene" id=6]
 [ext_resource path="res://MoveComponent.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Chicken/PickupComponent.gd" type="Script" id=8]
+[ext_resource path="res://assets/chicken-buck.wav" type="AudioStream" id=9]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -62,5 +63,8 @@ one_shot = true
 
 [node name="egg_spawn_point" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.779808 )
+
+[node name="sfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 9 )
 
 [editable path="chicken"]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://MoveComponent.tscn" type="PackedScene" id=2]
-[ext_resource path="res://crosshair.png" type="Texture" id=3]
+[ext_resource path="res://assets/crosshair.png" type="Texture" id=3]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://corn_icon.png" type="Texture" id=5]
-[ext_resource path="res://chicken_icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/corn_icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/chicken_icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/ost.wav" type="AudioStream" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -130,7 +131,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RayCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
-enabled = true
-cast_to = Vector3( 0, 0, -5 )
+[node name="Music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 7 )

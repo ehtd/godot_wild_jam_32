@@ -9,12 +9,12 @@ export var max_corn_count = 7
 
 onready var camera = $Camera
 onready var move_component = $MoveComponent
-onready var raycast = $RayCast
 onready var fps_label = $CanvasLayer/Label
 onready var corn_count_label = $CanvasLayer/corn_label
 onready var chicken_count_label = $CanvasLayer/chicken_label
 onready var crosshair: TextureRect = $CanvasLayer/TextureRect
 onready var press_e: RichTextLabel = $CanvasLayer/press_e
+onready var music: AudioStreamPlayer3D = $Music
 
 var crosshair_normal_tex = null
 var crosshair_grab_tex = null
@@ -32,10 +32,11 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	move_component.init(self)
 	corn_count = max_corn_count
-	crosshair_normal_tex = load("res://crosshair.png")
-	crosshair_grab_tex = load("res://crosshair_selected.png")
+	crosshair_normal_tex = load("res://assets/crosshair.png")
+	crosshair_grab_tex = load("res://assets/crosshair_selected.png")
 	storage = get_tree().get_nodes_in_group("storage")[0]
 	ground = get_tree().get_nodes_in_group("ground")[0]
+	music.play()
 #	print(ground.get_instance_id())
 
 

@@ -14,6 +14,7 @@ onready var pickup_component = $PickupComponent
 onready var timer = $Timer
 onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
 onready var spawn_point = $egg_spawn_point
+onready var sfx: AudioStreamPlayer3D = $sfx
 
 enum STATES { IDLE, WALK, LOOK, TRAPPED, NO_CORN, SCARED }
 
@@ -203,7 +204,8 @@ func got_corn():
 	print(" ", self, "got corn")
 	corn_ate_count = corn_ate_count + 1
 	if (corn_ate_count >= corns_to_hatch):
-		print("about to hatch")
+#		print("about to hatch")
+		sfx.play()
 		corn_ate_count = 0
 		var egg_instance = _egg.instance()
 		get_tree().get_root().add_child(egg_instance)
