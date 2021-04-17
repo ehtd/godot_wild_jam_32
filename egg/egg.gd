@@ -16,4 +16,6 @@ func hatch():
 	chicken_instance.global_transform.origin = current_pos
 	hide()
 
+func _exit_tree():
+	timer.stop()
 

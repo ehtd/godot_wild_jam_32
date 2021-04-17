@@ -50,7 +50,9 @@ func _ready():
 	
 	question_mark.hide()
 
-
+func _exit_tree():
+	timer.stop()
+	
 func _process(delta):
 	update_all_corn()
 	set_closest_corn()
