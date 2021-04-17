@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://MoveComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://crosshair.png" type="Texture" id=3]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://corn_icon.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -43,10 +45,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 40.0
-margin_bottom = 14.0
+anchor_left = 0.012
+anchor_top = 0.962
+anchor_right = 0.012
+anchor_bottom = 0.962
+margin_right = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,6 +59,49 @@ anchor_left = 0.024
 anchor_top = 0.956
 anchor_right = 0.154
 anchor_bottom = 0.971
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="press_e" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.442
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -16.2
+margin_right = 63.0
+margin_bottom = -15.0
+custom_fonts/normal_font = ExtResource( 4 )
+text = "Press E"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="corn_label" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.056
+anchor_top = 0.043
+anchor_right = 0.056
+anchor_bottom = 0.043
+margin_left = 3.2
+margin_top = -6.8
+margin_right = 111.2
+margin_bottom = 24.2
+custom_fonts/normal_font = ExtResource( 4 )
+text = " x 10"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+margin_left = -4.25
+margin_top = 0.5
+margin_right = 60.75
+margin_bottom = 61.5
+texture = ExtResource( 5 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -124,7 +124,7 @@ func set_state_idle():
 
 func set_state_walk():
 	current_state = STATES.WALK
-	animation_player.play("walk_loop", 0.1)
+	animation_player.play("walk_loop", -1.0, 2.0)
 	#print("walk")
 
 func set_state_look():
@@ -195,7 +195,7 @@ func face_dir(dir: Vector3, delta):
 		return false
 	
 func got_corn():
-	print(" ", self, "got corn")
+#	print(" ", self, "got corn")
 	closest_corn = null
 	move_component.freeze()
 #	print(all_corn)

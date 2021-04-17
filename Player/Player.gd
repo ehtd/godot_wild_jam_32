@@ -11,8 +11,9 @@ onready var camera = $Camera
 onready var move_component = $MoveComponent
 onready var raycast = $RayCast
 onready var fps_label = $CanvasLayer/Label
-onready var corn_count_label = $CanvasLayer/corn_count_label
+onready var corn_count_label = $CanvasLayer/corn_label
 onready var crosshair: TextureRect = $CanvasLayer/TextureRect
+onready var press_e: RichTextLabel = $CanvasLayer/press_e
 
 var crosshair_normal_tex = null
 var crosshair_grab_tex = null
@@ -34,7 +35,7 @@ func _ready():
 	crosshair_grab_tex = load("res://crosshair_selected.png")
 	storage = get_tree().get_nodes_in_group("storage")[0]
 	ground = get_tree().get_nodes_in_group("ground")[0]
-	print(ground.get_instance_id())
+#	print(ground.get_instance_id())
 
 
 func _process(_delta):
@@ -75,13 +76,13 @@ func _input(event):
 		var result = get_ray_intersected_dictionary(event.position, 1, ray_length_corn, [])
 		if result:
 			var id_to_check = result.collider.get_owner().get_instance_id()
-			print(id_to_check)
+#			print(id_to_check)
 			if id_to_check == ground.get_instance_id():
 				add_corn_to_position(result.position)
 
 func update_ui():
 	fps_label.text = str(Engine.get_frames_per_second())
-	corn_count_label.text = str(corn_count)
+	corn_count_label.text = " x " + str(corn_count)
 	if can_grab_item(4+64)["can_grab"]:
 		set_crosshair_grab()
 	else:
@@ -126,6 +127,8 @@ func add_corn_to_position(position: Vector3):
 
 func set_crosshair_normal():
 	crosshair.texture = crosshair_normal_tex
+	press_e.hide()
 
 func set_crosshair_grab():
 	crosshair.texture = crosshair_grab_tex
+	press_e.show()
