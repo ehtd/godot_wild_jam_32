@@ -31,7 +31,7 @@ var ground = null
 var infinite_corn = false
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	move_component.init(self)
 	corn_count = max_corn_count
 	crosshair_normal_tex = load("res://assets/crosshair.png")
