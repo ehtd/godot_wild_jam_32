@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://credits.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+
+[node name="credits" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 0.72
+margin_right = -1.0
+margin_bottom = -3.05176e-05
+color = Color( 0.529412, 0.815686, 0.815686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchor_top = 0.718
+anchor_right = 1.0
+anchor_bottom = 0.998
+margin_left = 1.0
+margin_top = 0.199982
+margin_bottom = 0.200012
+color = Color( 0.447059, 0.733333, 0.521569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchor_top = 0.227
+anchor_right = 1.0
+anchor_bottom = 0.728
+margin_left = 167.0
+margin_top = -42.2
+margin_right = -153.0
+margin_bottom = 12.2
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]
+Thanks for playing
+
+
+
+A game by: Ernesto Torres
+
+
+Music: 
+- Up to the New (ID 1310) by Lobo Loco
+
+[/center]"
+text = "
+Thanks for playing
+
+
+
+A game by: Ernesto Torres
+
+
+Music: 
+- Up to the New (ID 1310) by Lobo Loco
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.05176e-05
+margin_bottom = 100.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]
+Have you tried INFINTE CORN mod?
+Press I during the game "
+text = "
+Have you tried INFINTE CORN mod?
+Press I during the game "
+__meta__ = {
+"_edit_use_anchors_": false
+}

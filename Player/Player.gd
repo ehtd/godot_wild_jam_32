@@ -46,7 +46,7 @@ func _process(_delta):
 	update_ui()
 	
 	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
+		get_tree().change_scene("res://credits.tscn")
 	
 	var move_vector = Vector3()
 	if Input.is_action_pressed("move_forward"):
