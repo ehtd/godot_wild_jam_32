@@ -21,6 +21,7 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57696, 0 )
 current = true
+far = 200.0
 
 [node name="MoveComponent" parent="." instance=ExtResource( 2 )]
 
