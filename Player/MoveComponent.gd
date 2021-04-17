@@ -25,6 +25,9 @@ func _ready():
 
 func init(_kinematic_body: KinematicBody):
 	kinematic_body = _kinematic_body
+
+func set_custom_speed(speed):
+	max_speed = speed
 	
 func jump():
 	pressed_jump = true

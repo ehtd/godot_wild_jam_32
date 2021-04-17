@@ -19,9 +19,10 @@ var player_ref: Player = null
 var all_corn: Array = []
 var closest_corn = null
 var path = []
-
+var chicken_speed = [0.2, 0.5, 2, 3, 1, 0.5, 0.2, 0.1]
 
 func _ready():
+	randomize()
 	timer.connect("timeout", self, "search_for_corn")
 	pickup_component.connect("got_pickup", self, "got_corn")
 	player_ref = get_tree().get_nodes_in_group("player")[0]
@@ -32,6 +33,11 @@ func _ready():
 #	search_for_corn()
 	#print(closest_corn)
 	move_component.init(self)
+	
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+
+	move_component.set_custom_speed(randi() % chicken_speed.size())
 	question_mark.hide()
 
 
@@ -118,7 +124,7 @@ func set_state_idle():
 
 func set_state_walk():
 	current_state = STATES.WALK
-	animation_player.play("walk_loop")
+	animation_player.play("walk_loop", 0.1)
 	#print("walk")
 
 func set_state_look():
