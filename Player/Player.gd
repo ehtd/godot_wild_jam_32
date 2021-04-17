@@ -5,7 +5,7 @@ class_name Player
 export var mouse_sensitivity = 0.2
 export var ray_length_corn = 200.0
 export var ray_length_chicken = 2.0
-export var max_corn_count = 20
+export var max_corn_count = 7
 
 onready var camera = $Camera
 onready var move_component = $MoveComponent
