@@ -3,7 +3,7 @@ extends Spatial
 export var sight_angle = 90
 export var sight_distance = 2 
 export var turn_speed = 100
-export var corns_to_hatch = 5
+export var corns_to_hatch = 7
 
 
 onready var animation_player: AnimationPlayer = $chicken/AnimationPlayer
@@ -208,6 +208,8 @@ func got_corn():
 		var egg_instance = _egg.instance()
 		get_tree().get_root().add_child(egg_instance)
 		egg_instance.global_transform.origin = spawn_point.global_transform.origin
+		scale = scale * Vector3(1.2, 1.2, 1.2)
+		corns_to_hatch += 7
 		
 		
 	closest_corn = null
