@@ -24,6 +24,7 @@ var corn = preload("res://Corn/CornPickUp.tscn")
 var corn_count = 0
 
 var storage = null
+var ground = null
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -32,7 +33,8 @@ func _ready():
 	crosshair_normal_tex = load("res://crosshair.png")
 	crosshair_grab_tex = load("res://crosshair_selected.png")
 	storage = get_tree().get_nodes_in_group("storage")[0]
-	print(storage.get_instance_id())
+	ground = get_tree().get_nodes_in_group("ground")[0]
+	print(ground.get_instance_id())
 
 
 func _process(_delta):
@@ -73,7 +75,8 @@ func _input(event):
 		var result = get_ray_intersected_dictionary(event.position, 1, ray_length_corn, [])
 		if result:
 			var id_to_check = result.collider.get_owner().get_instance_id()
-			if id_to_check != storage.get_instance_id():
+			print(id_to_check)
+			if id_to_check == ground.get_instance_id():
 				add_corn_to_position(result.position)
 
 func update_ui():
