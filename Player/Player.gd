@@ -12,6 +12,7 @@ onready var move_component = $MoveComponent
 onready var raycast = $RayCast
 onready var fps_label = $CanvasLayer/Label
 onready var corn_count_label = $CanvasLayer/corn_label
+onready var chicken_count_label = $CanvasLayer/chicken_label
 onready var crosshair: TextureRect = $CanvasLayer/TextureRect
 onready var press_e: RichTextLabel = $CanvasLayer/press_e
 
@@ -86,6 +87,8 @@ func _input(event):
 func update_ui():
 	fps_label.text = str(Engine.get_frames_per_second())
 	corn_count_label.text = " x " + str(corn_count)
+	var chicken_count = get_tree().get_nodes_in_group("chicken").size()
+	chicken_count_label.text = " x " + str(chicken_count)
 	if can_grab_item(4+64)["can_grab"]:
 		set_crosshair_grab()
 	else:
