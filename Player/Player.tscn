@@ -6,7 +6,7 @@
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/corn_icon.png" type="Texture" id=5]
 [ext_resource path="res://assets/chicken_icon.png" type="Texture" id=6]
-[ext_resource path="res://assets/ost.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/ost_small.ogg" type="AudioStream" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
