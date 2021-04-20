@@ -5,10 +5,11 @@ onready var timer = $Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timer.connect("timeout",self,"hatch")
+	timer.wait_time = Tweaks.egg_timer
 	timer.start()
 
 func hatch():
-	print("hatching")
+#	print("hatching")
 	var chicken = load("res://Chicken/Chicken_scn.tscn")
 	var chicken_instance = chicken.instance()
 	get_tree().get_root().add_child(chicken_instance)

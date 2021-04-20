@@ -1,10 +1,6 @@
 extends Spatial
 
 export var sight_angle = 90
-export var sight_distance = 2 
-export var turn_speed = 100
-export var corns_to_hatch = 7
-export var corn_hatch_increment = 7
 
 onready var animation_player: AnimationPlayer = $chicken/AnimationPlayer
 onready var question_mark = $question_mark
@@ -28,6 +24,7 @@ var chicken_look_speed = [1.7, 1.5, 1.6, 2.0, 1.2]
 onready var _egg = preload("res://egg/egg.tscn")
 var corn_ate_count = 0
 var look_speed = 2.0
+var corns_to_hatch = Tweaks.corns_to_hatch
 
 func _ready():
 	randomize() 
@@ -200,25 +197,26 @@ func set_closest_corn():
 func face_dir(dir: Vector3, delta):
 	var angle_diff = global_transform.basis.z.angle_to(dir)
 	var turn_right = sign(global_transform.basis.x.dot(dir))
-	if abs(angle_diff) < deg2rad(turn_speed) * delta:
+	if abs(angle_diff) < deg2rad(Tweaks.turn_speed) * delta:
 		rotation.y = atan2(dir.x, dir.z)
 		return true
 	else:
-		rotation.y += deg2rad(turn_speed) * delta * turn_right
+		rotation.y += deg2rad(Tweaks.turn_speed) * delta * turn_right
 		return false
 	
 func got_corn():
-	print(" ", self, "got corn")
+#	print(" ", self, "got corn")
 	corn_ate_count = corn_ate_count + 1
-	if (corn_ate_count >= corns_to_hatch):
+	if (corn_ate_count >= Tweaks.corns_to_hatch):
 #		print("about to hatch")
-		sfx.play()
+		if Tweaks.play_music: 
+			sfx.play()
 		corn_ate_count = 0
 		var egg_instance = _egg.instance()
 		get_tree().get_root().add_child(egg_instance)
 		egg_instance.global_transform.origin = spawn_point.global_transform.origin
 		chicken_mesh.scale = chicken_mesh.scale * Vector3(1.2, 1.2, 1.2)
-		corns_to_hatch += corn_hatch_increment
+		corns_to_hatch += Tweaks.corn_hatch_increment
 		
 		
 	closest_corn = null

@@ -35,6 +35,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 CornManager="*res://singleton/CornManager.gd"
+Tweaks="*res://singleton/Tweaks.gd"
 
 [display]
 

@@ -27,7 +27,7 @@ var corn_count = 0
 var storage = null
 var ground = null
 
-var infinite_corn = false
+var infinite_corn = Tweaks.infinite_corn
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -37,7 +37,8 @@ func _ready():
 	crosshair_grab_tex = load("res://assets/crosshair_selected.png")
 	storage = get_tree().get_nodes_in_group("storage")[0]
 	ground = get_tree().get_nodes_in_group("ground")[0]
-	music.play()
+	if Tweaks.play_music:
+		music.play()
 #	print(ground.get_instance_id())
 
 
