@@ -22,7 +22,6 @@ var crosshair_grab_tex = null
 signal place_corn
 signal open_storage
 
-var corn = preload("res://Corn/CornPickUp.tscn")
 var corn_count = 0
 
 var storage = null
@@ -130,9 +129,10 @@ func get_ray_intersected_dictionary(coordinates: Vector2, collision_mask: int, r
 		
 func add_corn_to_position(position: Vector3):
 	if corn_count > 0 or infinite_corn:
-		var corn_instance = corn.instance()
+		var corn_instance = CornManager.new_corn()
 		get_tree().get_root().add_child(corn_instance)
 		corn_instance.global_transform.origin = position
+
 		if infinite_corn:
 			corn_count = max_corn_count
 		else:

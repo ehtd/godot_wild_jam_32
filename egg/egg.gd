@@ -14,7 +14,7 @@ func hatch():
 	get_tree().get_root().add_child(chicken_instance)
 	var current_pos = global_transform.origin
 	chicken_instance.global_transform.origin = current_pos
-	hide()
+	queue_free()
 
 func _exit_tree():
 	timer.stop()

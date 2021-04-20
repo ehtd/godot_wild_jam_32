@@ -4,7 +4,7 @@ export var sight_angle = 90
 export var sight_distance = 2 
 export var turn_speed = 100
 export var corns_to_hatch = 7
-
+export var corn_hatch_increment = 7
 
 onready var animation_player: AnimationPlayer = $chicken/AnimationPlayer
 onready var question_mark = $question_mark
@@ -15,12 +15,12 @@ onready var timer = $Timer
 onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
 onready var spawn_point = $egg_spawn_point
 onready var sfx: AudioStreamPlayer3D = $sfx
+onready var chicken_mesh = $chicken
 
 enum STATES { IDLE, WALK, LOOK, TRAPPED, NO_CORN, SCARED }
 
 var current_state = STATES.IDLE
 var player_ref: Player = null
-var all_corn: Array = []
 var closest_corn = null
 var path = []
 var chicken_speed = [0.2, 0.5, 2, 3, 1, 0.5, 0.2, 0.1]
@@ -35,7 +35,6 @@ func _ready():
 	pickup_component.connect("got_pickup", self, "got_corn")
 	player_ref = get_tree().get_nodes_in_group("player")[0]
 	player_ref.connect("place_corn", self, "new_corn")
-	update_all_corn()
 	set_closest_corn()
 	set_state_look()
 #	search_for_corn()
@@ -54,7 +53,6 @@ func _exit_tree():
 	timer.stop()
 	
 func _process(delta):
-	update_all_corn()
 	set_closest_corn()
 	
 #	if can_see_player():
@@ -91,8 +89,11 @@ func walk(delta):
 		var current_position = global_transform.origin
 		var corn_position = closest_corn.global_transform.origin
 		#print(corn_position)
-		path = nav.get_simple_path(current_position, corn_position)
-		
+		if nav:
+			path = nav.get_simple_path(current_position, corn_position)
+		else:
+			return
+			
 		var goal_pos = corn_position
 		if path.size() > 1:
 			goal_pos = path[1]
@@ -216,13 +217,12 @@ func got_corn():
 		var egg_instance = _egg.instance()
 		get_tree().get_root().add_child(egg_instance)
 		egg_instance.global_transform.origin = spawn_point.global_transform.origin
-		scale = scale * Vector3(1.2, 1.2, 1.2)
-		corns_to_hatch += 7
+		chicken_mesh.scale = chicken_mesh.scale * Vector3(1.2, 1.2, 1.2)
+		corns_to_hatch += corn_hatch_increment
 		
 		
 	closest_corn = null
 	move_component.freeze()
-#	print(all_corn)
 #	print(closest_corn)
 	if get_visible_corn().size() > 0:
 #		set_closest_corn()
@@ -234,20 +234,12 @@ func search_for_corn():
 	if get_visible_corn().size() > 0:
 #		move_component.unfreeze()
 		set_state_look()
-	
-func update_all_corn():
-	all_corn = get_tree().get_nodes_in_group("corn")
 
 func get_visible_corn():
-	var visible_corn = []
-	for c in get_tree().get_nodes_in_group("corn"):
-		if c.visible:
-			visible_corn.append(c)
-	return visible_corn
+	return CornManager.get_active_corn_array()
 
 func new_corn():
 #	print("new corn")
-	update_all_corn()
 	set_closest_corn()
 	search_for_corn()
 	

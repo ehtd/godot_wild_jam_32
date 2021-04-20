@@ -32,6 +32,10 @@ boot_splash/image="res://assets/wallpaper.png"
 boot_splash/use_filter=false
 config/icon="res://assets/icon.png"
 
+[autoload]
+
+CornManager="*res://singleton/CornManager.gd"
+
 [display]
 
 window/size/width=800
