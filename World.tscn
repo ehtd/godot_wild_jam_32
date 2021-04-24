@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ground.tscn" type="PackedScene" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://storage/Storage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence/Fence.tscn" type="PackedScene" id=5]
 [ext_resource path="res://cloud/cloud.glb" type="PackedScene" id=6]
-[ext_resource path="res://cloud_layer.gd" type="Script" id=7]
-[ext_resource path="res://cloud_layer2.gd" type="Script" id=8]
+[ext_resource path="res://cloud/cloud.cs" type="Script" id=7]
 [ext_resource path="res://grass/grass.glb" type="PackedScene" id=9]
 [ext_resource path="res://grass/grass_yellow.tscn" type="PackedScene" id=10]
 [ext_resource path="res://dirt/dirt.tscn" type="PackedScene" id=11]
@@ -268,7 +267,7 @@ transform = Transform( -12.8966, 1.26673e-06, 7.66018, -1.31134e-06, -16.853, 0,
 
 [node name="cloud_layer2" type="Spatial" parent="."]
 transform = Transform( -0.108463, 0.0425195, 0.94472, -0.129744, 0.414706, -0.104556, -0.97831, -0.0597128, -0.053438, 0, 29.8162, 0 )
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="cloud" parent="cloud_layer2" instance=ExtResource( 6 )]
 transform = Transform( 1.22815, 0, -1.7371, 0, 6.92827, 0, 5.43836, 0, 5.32519, -64.829, 0, 0 )

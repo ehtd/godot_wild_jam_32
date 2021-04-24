@@ -112,6 +112,10 @@ infinite_corn={
 3d_physics/layer_5="obstacles"
 3d_physics/layer_6="fence"
 
+[mono]
+
+debugger_agent/wait_for_debugger=true
+
 [rendering]
 
 quality/shadows/filter_mode=0
